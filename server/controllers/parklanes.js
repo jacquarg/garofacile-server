@@ -5,7 +5,10 @@ that.ways = {};
 that.nodes = {};
 
 module.exports.around = function(req, res) {
-    var point = req.query;
+    var point = {
+        lat: parseFloat(req.query.lat),
+        lon: parseFloat(req.query.lon),
+    };
     that.getLanesAround(point, function(err, segments) {
         if (err) {
             res.send(500, err);
@@ -17,14 +20,16 @@ module.exports.around = function(req, res) {
 
 that.getLanesAround = function(point, callback) {
 
-    var radius = 0.001; // 10E-5 ~ 1m
+    var radius = 0.005; // 10E-5 ~ 1m
 
     // filter ways around the specified point
 
     var wayInCircle = function(way, point, radius) {
         return way.nodes.some(function(n) {
-            return (n.lat > (point.lat - radius) || n.lat < (point.lat + radius))
-            && (n.lon > (point.lon - radius) || n.lon < (point.lon + radius));
+            var lat = parseFloat(n.lat);
+            var lon = parseFloat(n.lon);
+            return (lat > (point.lat - radius) && lat < (point.lat + radius)
+            && lon > (point.lon - radius) && lon < (point.lon + radius));
         });
     };
 
