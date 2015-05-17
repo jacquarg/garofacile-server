@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "cake tests",
-    "start": "node build/server.js"
+    "start": "coffee server.coffee"
   },
   "cozy-permissions": {},
   "cozy-displayName": "Garofacile-srv"
