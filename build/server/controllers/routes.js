@@ -9,7 +9,7 @@ module.exports = {
   'foo': {
     get: index.main
   },
-  'parklanes/around': {
+  'public/parklanes/around': {
     get: parklanes.around
   }
 };
