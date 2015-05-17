@@ -1,5 +1,5 @@
 {
-  "name": "cozy-template",
+  "name": "garocafile-server",
   "version": "1.0.0",
   "engines": [
     "node = 0.10.x"
@@ -28,5 +28,5 @@
     "start": "node build/server.js"
   },
   "cozy-permissions": {},
-  "cozy-displayName": "Template"
+  "cozy-displayName": "Garofacile"
 }
