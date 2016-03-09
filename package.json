@@ -1,9 +1,9 @@
 {
   "name": "garofacile",
-  "version": "1.0.0",
-  "engines": [
-    "node = 0.10.x"
-  ],
+  "version": "2.0.0-dev",
+  "engines": {
+    "node": "~0.10"
+  },
   "description": "A template project for cozy applications",
   "license": "MIT",
   "repository": {
@@ -12,11 +12,15 @@
   },
   "main": "server.coffee",
   "dependencies": {
+    "JSONStream": "1.1.1",
     "americano": "0.3.11",
-    "cozydb": "0.0.3"
+    "chai": "3.5.0",
+    "cozydb": "0.0.3",
+    "geopouch": "2.0.1",
+    "pouchdb": "5.2.1"
   },
   "devDependencies": {
-    "should": "4.0.1",
+    "chai": "3.5.0",
     "mocha": "1.20.1",
     "request-json": "0.4.10",
     "cozy-fixtures": "1.1.1",
@@ -24,9 +28,13 @@
     "printit": "^0.1.3"
   },
   "scripts": {
-    "test": "cake tests",
-    "start": "coffee server.coffee"
+    "start": "coffee server.coffee",
+    "test": "mocha tests/unit/*/* --reporter spec --colors"
   },
-  "cozy-permissions": {},
+  "cozy-permissions": {
+    "RoadInfo": {
+      "description": "Peoples anonymous parking infos."
+    }
+  },
   "cozy-displayName": "Garofacile-srv"
 }
