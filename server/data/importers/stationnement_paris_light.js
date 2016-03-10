@@ -86,9 +86,13 @@ var filterNPrune = function(dataset) {
     if (dataset.fields.regpri.indexOf('Payant') === 0 &&
         dataset.fields.geo_shape && dataset.fields.geo_shape.type === 'Polygon') {
         var res = {
-            polygon: dataset.fields.geo_shape.coordinates,
-            point: dataset.fields.geo_point_2d,
+            geometry: dataset.fields.geo_shape,
+            point: {
+              type: 'Point',
+              coordinates: dataset.fields.geo_point_2d.reverse()
+            },
             regpar: dataset.fields.regpar,
+            _id: dataset.recordid
         };
         return res;
         // console.log(JSON.stringify(res, null, 2));

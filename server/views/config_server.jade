@@ -1,0 +1,12 @@
+html
+  head
+    title 'Config Garofacile server'
+  body
+    h1 'Config Garofacile server'
+
+    form(action="config", method="post", enctype="multipart/form-data")
+        input#emplacementfile(type='file', name='file')
+        input(type="submit", value="Submit")
+
+    form(action='reset', method='post')
+        input(type='submit',  value='reset database')

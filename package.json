@@ -1,36 +1,36 @@
 {
   "name": "garofacile",
-  "version": "2.0.0-dev",
-  "engines": {
-    "node": "~0.10"
-  },
-  "description": "A template project for cozy applications",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cozy/cozy-template-coffee.git"
-  },
-  "main": "server.coffee",
+  "version": "2.0.0",
+  "description": "Garofacile Server: trouver une place en voirie",
+  "main": "server.js",
   "dependencies": {
     "JSONStream": "1.1.1",
-    "americano": "0.3.11",
-    "chai": "3.5.0",
-    "cozydb": "0.0.3",
+    "body-parser": "1.14.2",
+    "busboy": "0.2.12",
+    "express": "4.13.3",
     "geopouch": "2.0.1",
-    "pouchdb": "5.2.1"
+    "jade": "1.11.0",
+    "morgan": "1.6.1",
+    "pouchdb": "5.3.0",
+    "pouchdb-upsert": "2.0.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "mocha": "1.20.1",
-    "request-json": "0.4.10",
-    "cozy-fixtures": "1.1.1",
-    "coffeelint": "1.5.1",
-    "printit": "^0.1.3"
+    "nodemon": "1.8.1"
   },
   "scripts": {
-    "start": "coffee server.coffee",
+    "start": "node server.js",
+    "dev": "node_modules/.bin/nodemon server.js --ignore client/",
     "test": "mocha tests/unit/*/* --reporter spec --colors"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cozy/cozy-tutorial.git"
+  },
+  "author": "jacquarg",
+  "license": "MIT",
+  "homepage": "https://github.com/jacquarg/garofacile-server",
   "cozy-permissions": {
     "RoadInfo": {
       "description": "Peoples anonymous parking infos."
