@@ -5,7 +5,7 @@ var DBH = require('../database_handler');
 
 
 // call with parkinglanes/?bbox=[minLat, minLon, maxLat, maxLon]'
-router.get('/parkinglanes/', function(req, res, next) {
+router.get('/public/parkinglanes/', function(req, res, next) {
     if (!req.query.bbox) {
         return res.status(400).send("Requires bbox=[minLat, minLon, maxLat, maxLon] parameter.");
     }
@@ -18,7 +18,7 @@ router.get('/parkinglanes/', function(req, res, next) {
 });
 
 
-router.get('/byid/:id', function(req, res, next) {
+router.get('/public/byid/:id', function(req, res, next) {
     DBH.db.get(req.params.id).then(function(doc) {
         res.status(200).json(doc);
     }).catch(next);
