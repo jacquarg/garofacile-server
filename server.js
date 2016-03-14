@@ -9,7 +9,7 @@ var morgan = require('morgan');
     Configuration section.
 */
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+app.use(morgan(":date[iso] :method :url :status :response-time ms"));
 app.use(express.static('client'));
 
 app.set('views', './server/views')
